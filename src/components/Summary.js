@@ -10,10 +10,10 @@ function Summary(props) {
         return (
             <tr key={covidData.Country}>
                 <td>{covidData.Country}</td>
-                <td>{covidData.NewRecovered}</td>
-                <td>{covidData.NewDeaths}</td>
-                <td>{covidData.TotalDeaths}</td>
-                <td>{covidData.TotalConfirmed}</td>
+                <td>{covidData.TotalConfirmed.toLocaleString()}</td>
+                <td>{covidData.NewRecovered.toLocaleString()}</td>
+                <td>{covidData.NewDeaths.toLocaleString()}</td>
+                <td>{covidData.TotalDeaths.toLocaleString()}</td>
                 <td>{new Date(covidData.Date).toLocaleDateString()}</td>
             </tr>
         )
@@ -28,11 +28,11 @@ function Summary(props) {
                         <thead>
                             <tr>
                                 <th>Country</th>
-                                <th>New Recovered</th>
-                                <th>New Deaths</th>
-                                <th>Total Deaths</th>
-                                <th>Total Confirmed</th>
-                                <th>last Updated</th>
+                                <th style={{color: "#56d143"}}>New Recovered</th>
+                                <th style={{color: "#ebd428"}}>Total Confirmed</th>
+                                <th style={{color: "#eb2828"}}>New Deaths</th>
+                                <th style={{color: "#e32749"}}>Total Deaths</th>                            
+                                <th>Last Updated</th>
                             </tr>
                         </thead>
                         <tbody>
