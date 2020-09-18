@@ -1,4 +1,11 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
+
+import Summary from "./components/Summary";
+
+//example dataset
+import SummaryData from "./SummaryData"
+
+
 
 class App extends Component {
   constructor() {
@@ -9,27 +16,38 @@ class App extends Component {
     }
   }
 
+
   //fetch the API data, when page loads
   componentDidMount() {
 
-    fetch("https://api.covid19api.com/summary")
-      .then(res => res.json()) //convert to JSON
-      .then(response => {
-        this.setState({
-          //store the data in the current
-          apiData: response,
-          loadingData: false
-        })
-        console.log(this.state.apiData)
-        console.log(this.state.loadingData)
-      })
-  }
+    // fetch("https://api.covid19api.com/summary")
+    //   .then(res => res.json()) //convert to JSON
+    //   .then(response => {
+    //     this.setState({
+    //       //store the data in the current state
+    //       apiData: response,
+    //       loadingData: false
+    //     })
+    //     console.log(this.state.apiData)
+    //     console.log(this.state.loadingData)
+    //   })
 
+    //
+
+    //use an example data set first
+    this.setState({
+      apiData: SummaryData,
+      loadingData: false
+    })
+    console.log(SummaryData)
+
+  }
 
   render() {
     return (
       <div>
-        {this.state.loadingData ? <h1>Fetching Data</h1> : <h1>done loading</h1>}
+        {this.state.loadingData ? <h1>Fetching Data</h1> : <Summary data={this.state.apiData} />}
+
       </div>
     )
   }
