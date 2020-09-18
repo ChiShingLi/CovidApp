@@ -49,6 +49,7 @@ class App extends Component {
         <TopNavbar />
         <h1>World COVID-19 Stats</h1>
         {this.state.loadingData ? <h1>Fetching Data</h1> : <Summary data={this.state.apiData} />}
+        <footer>test</footer>
       </div>
     )
   }

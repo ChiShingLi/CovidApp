@@ -14,7 +14,7 @@ function Summary(props) {
                 <td>{covidData.NewDeaths}</td>
                 <td>{covidData.TotalDeaths}</td>
                 <td>{covidData.TotalConfirmed}</td>
-                <td>{Date(covidData.Date)}</td>
+                <td>{new Date(covidData.Date).toLocaleDateString()}</td>
             </tr>
         )
     })
