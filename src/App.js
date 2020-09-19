@@ -3,9 +3,10 @@ import React, { Component } from "react";
 import Summary from "./components/Summary";
 
 //example dataset
-import SummaryData from "./SummaryData"
+import SummaryData from "./SummaryData";
 
-import TopNavbar from "./components/TopNavbar"
+import TopNavbar from "./components/TopNavbar";
+import SummaryMap from "./components/SummaryMap";
 
 class App extends Component {
   constructor() {
@@ -38,7 +39,6 @@ class App extends Component {
       apiData: SummaryData,
       loadingData: false
     })
-    //console.log(SummaryData)
   }
   //API CALL
   //        {this.state.loadingData ? <h1>Fetching Data</h1> : <Summary data={this.state.apiData.Countries} />}
@@ -47,6 +47,7 @@ class App extends Component {
 
       <div>
         <TopNavbar />
+        <SummaryMap/>
         <h1>World COVID-19 Stats</h1>
         {this.state.loadingData ? <h1>Fetching Data</h1> : <Summary data={this.state.apiData} />}
         <footer>test</footer>
