@@ -1,4 +1,4 @@
-import React, { Component, memo } from "react";
+import React, { memo } from "react";
 import {
   ZoomableGroup,
   ComposableMap,
@@ -6,14 +6,15 @@ import {
   Geography
 } from "react-simple-maps";
 
-import SummaryData from "../SummaryData";
+//sample dataset
+//import SummaryData from "../SummaryData";
 
 const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
 
 //get stats by stat types and ISO2 Country codes
-function getStats(type, countryCode) {
+function getStats(type, countryCode, SummaryData) {
   let covidData = []
   switch (type) {
     case "NewConfirmed":
@@ -49,7 +50,7 @@ function getStats(type, countryCode) {
     case "LastUpdated":
       covidData = SummaryData.filter(data => data.CountryCode === countryCode)
         .map(x => x.Date)
-     return(new Date(covidData).toLocaleDateString());
+      return (new Date(covidData).toLocaleDateString());
 
     default:
       return "N/A"
@@ -57,9 +58,10 @@ function getStats(type, countryCode) {
 }
 
 
-const MapChart = ({ setTooltipContent }) => {
+const MapChart = ({ setTooltipContent, data }) => {
   return (
     <>
+      {console.log(data)}
       <ComposableMap data-tip="" projectionConfig={{ scale: 200 }}>
         <ZoomableGroup>
           <Geographies geography={geoUrl}>
@@ -70,23 +72,24 @@ const MapChart = ({ setTooltipContent }) => {
                   geography={geo}
                   onMouseEnter={() => {
                     const { NAME, ISO_A2 } = geo.properties;
-
-                    //tooltips data, get stats by Country codes
+                    //tooltips data, get stats by Country codes, data from the props passed down by parent (App.js)
                     setTooltipContent(
                       <div>
                         <b>{NAME}</b>
                         <br />
-                        New Recovered: {getStats("NewRecovered", ISO_A2)}
+                        New Confirmed: {getStats("NewConfirmed", ISO_A2, data)}
                         <br />
-                        Total Confirmed: {getStats("TotalRecovered", ISO_A2)}
+                        Total Confirmed: {getStats("TotalRecovered", ISO_A2, data)}
                         <br />
-                        New Deaths: {getStats("NewDeaths", ISO_A2)}
+                        New Recovered: {getStats("NewRecovered", ISO_A2, data)}
                         <br />
-                        Total Deaths: {getStats("TotalDeaths", ISO_A2)}
+                        New Deaths: {getStats("NewDeaths", ISO_A2, data)}
                         <br />
-                        Last Updated: {getStats("LastUpdated", ISO_A2)}
+                        Total Deaths: {getStats("TotalDeaths", ISO_A2, data)}
+                        <br />
+                        Last Updated: {getStats("LastUpdated", ISO_A2, data)}
                       </div>
-                    ); 
+                    );
                   }}
                   onMouseLeave={() => {
                     setTooltipContent("");
@@ -97,7 +100,7 @@ const MapChart = ({ setTooltipContent }) => {
                       outline: "none"
                     },
                     hover: {
-                      fill: "#F53",
+                      fill: "#F7615E",
                       outline: "none"
                     },
                     pressed: {

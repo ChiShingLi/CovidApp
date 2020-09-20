@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-import { Card, CardImg, Table } from 'react-bootstrap';
+import { Card, Table, Container } from 'react-bootstrap';
 
 class Summary extends Component {
     constructor() {
@@ -16,6 +16,7 @@ class Summary extends Component {
             return (
                 <tr key={covidSummaryData.Country}>
                     <td>{covidSummaryData.Country}</td>
+                    <td>{covidSummaryData.NewConfirmed.toLocaleString()}</td>
                     <td>{covidSummaryData.TotalConfirmed.toLocaleString()}</td>
                     <td>{covidSummaryData.NewRecovered.toLocaleString()}</td>
                     <td>{covidSummaryData.NewDeaths.toLocaleString()}</td>
@@ -46,16 +47,17 @@ class Summary extends Component {
         //     )
         // })
         return (
-            <div>
+            <Container>
+                <h1>World COVID-19 Stats</h1>
                 <Card>
-                    <CardImg top width="100%" src="placeholder.jpg" />
                     <Card.Body>
-                        <Table striped bordered hover size="sm" style={{ width: "50%" }}>
+                        <Table striped bordered hover size="sm" >
                             <thead>
                                 <tr>
                                     <th>Country</th>
-                                    <th style={{ color: "#56d143" }} >New Recovered</th>
-                                    <th style={{ color: "#ebd428" }} >Total Confirmed</th>
+                                    <th style={{ color: "#bf7171" }}>New Confirmed</th>
+                                    <th style={{ color: "#cfa534" }}>Total Confirmed</th>
+                                    <th style={{ color: "#56d143" }}>New Recovered</th>
                                     <th style={{ color: "#eb2828" }}>New Deaths</th>
                                     <th style={{ color: "#e32749" }}>Total Deaths</th>
                                     <th>Last Updated</th>
@@ -68,7 +70,7 @@ class Summary extends Component {
                         </Table>
                     </Card.Body>
                 </Card>
-            </div >
+            </Container>
         )
     }
 }

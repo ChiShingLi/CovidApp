@@ -4,11 +4,16 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import TopNavbar from "./components/TopNavbar";
+import Footer from "./components/Footer";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <div style={{background: "#F2F2F2"}}>
+      <TopNavbar />
+      <App />
+      <Footer />
+    </div>
   </React.StrictMode>,
   document.getElementById('root')
 );

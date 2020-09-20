@@ -2,11 +2,10 @@ import React, { Component } from "react";
 
 import Summary from "./components/Summary";
 
-//example dataset
-import SummaryData from "./SummaryData";
-
-import TopNavbar from "./components/TopNavbar";
 import SummaryMap from "./components/SummaryMap";
+
+//example dataset
+//import SummaryData from "./SummaryData";
 
 class App extends Component {
   constructor() {
@@ -19,45 +18,39 @@ class App extends Component {
 
   //fetch the API data, when page loads
   componentDidMount() {
-
-    // fetch("https://api.covid19api.com/summary")
-    //   .then(res => res.json()) //convert to JSON
-    //   .then(response => {
-    //     this.setState({
-    //       //store the data in the current state
-    //       apiData: response,
-    //       loadingData: false
-    //     })
-    //     console.log(this.state.apiData)
-    //     console.log(this.state.loadingData)
-    //   })
-
-    //
+    //https://api.covid19api.com/summary
+    fetch("https://api.covid19api.com/summary")
+      .then(res => res.json()) //convert to JSON
+      .then(response => {
+        this.setState({
+          //store the data in the current state
+          apiData: response,
+          loadingData: false
+        })
+        //console.log(this.state.apiData)
+        //console.log(this.state.loadingData)
+      })
+    
 
     //use an example data set first
-    this.setState({
-      apiData: SummaryData,
-      loadingData: false
-    })
+    // this.setState({
+    //   apiData: SummaryData,
+    //   loadingData: false
+    // })
   }
   //API CALL
   //        {this.state.loadingData ? <h1>Fetching Data</h1> : <Summary data={this.state.apiData.Countries} />}
+
+  //SAMPLE TEST
+  //        {this.state.loadingData ? <h1>Fetching Data</h1> : <Summary data={this.state.apiData} />}
   render() {
     return (
-
       <div>
-        <TopNavbar />
-        <SummaryMap/>
-        <h1>World COVID-19 Stats</h1>
-        {this.state.loadingData ? <h1>Fetching Data</h1> : <Summary data={this.state.apiData} />}
-        <footer>test</footer>
+        <SummaryMap data={this.state.apiData.Countries}/>    
+        {this.state.loadingData ? <h1>Fetching Data...</h1> : <Summary data={this.state.apiData.Countries} />}
       </div>
     )
   }
 
 }
-
-
-
-
 export default App
