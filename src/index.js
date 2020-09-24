@@ -7,15 +7,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import TopNavbar from "./components/TopNavbar";
 import Footer from "./components/Footer";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, } from "react-router-dom";
 import About from "./components/About";
 
 ReactDOM.render(
   <React.StrictMode>
-    <div style={{ background: "#F2F2F2" }}>    
+    <div style={{ background: "#F2F2F2" }}>
       <TopNavbar />
       <Router>
-        <Route exact path="/" component={App}/>
+        <Route exact path="/" component={App} />
         <Route path="/About" component={About} />
       </Router>
       <Footer />

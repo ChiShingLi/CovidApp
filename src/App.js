@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 import Summary from "./components/Summary";
-
 import SummaryMap from "./components/SummaryMap";
+import SummaryBox from "./components/SummaryBox";
 
 //example dataset
 //import SummaryData from "./SummaryData";
@@ -18,7 +18,6 @@ class App extends Component {
 
   //fetch the API data, when page loads
   componentDidMount() {
-    //https://api.covid19api.com/summary
     fetch("https://api.covid19api.com/summary")
       .then(res => res.json()) //convert to JSON
       .then(response => {
@@ -27,12 +26,9 @@ class App extends Component {
           apiData: response,
           loadingData: false
         })
-        //console.log(this.state.apiData)
-        //console.log(this.state.loadingData)
       })
-    
 
-    //use an example data set first
+    //example data set
     // this.setState({
     //   apiData: SummaryData,
     //   loadingData: false
@@ -46,11 +42,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <SummaryMap data={this.state.apiData.Countries}/>    
+        <SummaryMap data={this.state.apiData.Countries} />
+        <SummaryBox />
         {this.state.loadingData ? <h1>Fetching Data...</h1> : <Summary data={this.state.apiData.Countries} />}
       </div>
     )
   }
-
 }
 export default App
