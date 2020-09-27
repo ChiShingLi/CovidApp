@@ -23,7 +23,6 @@ class Detail extends Component {
                     apiData: response,
                     loadingData: false
                 })
-                //console.log(this.state.apiData[0].Country)
             })
     }
     render() {
