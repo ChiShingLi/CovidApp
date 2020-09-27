@@ -15,7 +15,7 @@ class Summary extends Component {
         const dataArray = this.props.data.map(covidSummaryData => {
             return (
                 <tr key={covidSummaryData.Country}>
-                    <td>{covidSummaryData.Country}</td>
+                    <td><a href= {`/Detail/${covidSummaryData.CountryCode}`}>{covidSummaryData.Country}</a></td>
                     <td>{covidSummaryData.NewConfirmed.toLocaleString()}</td>
                     <td>{covidSummaryData.TotalConfirmed.toLocaleString()}</td>
                     <td>{covidSummaryData.NewRecovered.toLocaleString()}</td>

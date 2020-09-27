@@ -7,7 +7,7 @@ function TopNavbar() {
     return (
         <div>
             <Navbar bg="light" expand="lg">
-                <Navbar.Brand href="#">CoVid-19 Stats</Navbar.Brand>
+                <Navbar.Brand href="/">CoVid-19 Stats</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
@@ -18,8 +18,6 @@ function TopNavbar() {
             </Navbar>
         </div>
     )
-
-
 }
 
 export default TopNavbar

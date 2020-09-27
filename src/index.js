@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Route, } from "react-router-dom";
+
 import TopNavbar from "./components/TopNavbar";
 import Footer from "./components/Footer";
-
-import { BrowserRouter as Router, Route, } from "react-router-dom";
 import About from "./components/About";
+import Detail from "./components/Detail";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,6 +20,7 @@ ReactDOM.render(
       <Router>
         <Route exact path="/" component={App} />
         <Route path="/About" component={About} />
+        <Route path="/Detail/:id" component={Detail}/>
       </Router>
       <Footer />
     </div>
