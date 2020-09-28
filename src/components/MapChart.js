@@ -1,5 +1,4 @@
 import React, { memo } from "react";
-import { Link, Redirect } from "react-router-dom";
 import {
   ZoomableGroup,
   ComposableMap,
@@ -12,7 +11,6 @@ import {
 
 const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
-
 
 //get stats by stat types and ISO2 Country codes
 function getStats(type, countryCode, SummaryData) {
@@ -58,7 +56,6 @@ function getStats(type, countryCode, SummaryData) {
   }
 }
 
-
 const MapChart = ({ setTooltipContent, data }) => {
   return (
     <>
@@ -72,49 +69,49 @@ const MapChart = ({ setTooltipContent, data }) => {
                   key={geo.rsmKey}
                   geography={geo}
                   onMouseEnter={() => {
-                    const { NAME, ISO_A2 } = geo.properties;
-                    //tooltips data, get stats by Country codes, data from the props passed down by parent (App.js)
-                    setTooltipContent(
-                      <div>
-                        <b>{NAME}</b>
-                        <br />
+            const { NAME, ISO_A2 } = geo.properties;
+            //tooltips data, get stats by Country codes, data from the props passed down by parent (App.js)
+            setTooltipContent(
+              <div>
+                <b>{NAME}</b>
+                <br />
                         New Confirmed: {getStats("NewConfirmed", ISO_A2, data)}
-                        <br />
+                <br />
                         Total Confirmed: {getStats("TotalRecovered", ISO_A2, data)}
-                        <br />
+                <br />
                         New Recovered: {getStats("NewRecovered", ISO_A2, data)}
-                        <br />
+                <br />
                         New Deaths: {getStats("NewDeaths", ISO_A2, data)}
-                        <br />
+                <br />
                         Total Deaths: {getStats("TotalDeaths", ISO_A2, data)}
-                        <br />
+                <br />
                         Last Updated: {getStats("LastUpdated", ISO_A2, data)}
-                      </div>
-                    );
-                  }}
+              </div>
+            );
+          }}
                   onMouseLeave={() => {
-                    setTooltipContent("");
-                  }}
+            setTooltipContent("");
+          }}
                   style={{
-                    default: {
-                      fill: "#D6D6DA",
-                      outline: "none"
-                    },
-                    hover: {
-                      fill: "#F7615E",
-                      outline: "none"
-                    },
-                    pressed: {
-                      fill: "#E42",
-                      outline: "none"
-                    }
-                  }}
+            default: {
+              fill: "#D6D6DA",
+              outline: "none"
+            },
+            hover: {
+              fill: "#F7615E",
+              outline: "none"
+            },
+            pressed: {
+              fill: "#E42",
+              outline: "none"
+            }
+          }}
                 />
               ))
             }
           </Geographies>
         </ZoomableGroup>
-      </ComposableMap>
+    </ComposableMap>
     </>
   );
 };
