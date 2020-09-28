@@ -24,16 +24,16 @@ A live demo website is available [here](https://chishingli.github.io/CovidApp-de
 
 ## Feature
 - Interactive map:
-![Interactive map]("./src/git-img/1.jpg)
+![Interactive map]("/src/git-img/1.jpg)
 
 - World Stats Summary:
-![World Stats]("./src/git-img/2.jpg)
+![World Stats]("/src/git-img/2.jpg)
 
 - Search by Country:
-![Country Search]("./src/git-img/3.jpg)
+![Country Search]("/src/git-img/3.jpg)
 
 - Detailed View by Country:
-![Detailed View]("./src/git-img/4.jpg)
+![Detailed View]("/src/git-img/4.jpg)
 
 
 ## Note
