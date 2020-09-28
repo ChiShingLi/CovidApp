@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-
+import ReactCountryFlag from "react-country-flag";
 import { Card, Table, Container, InputGroup, FormControl } from 'react-bootstrap';
 
 class Summary extends Component {
@@ -15,7 +15,7 @@ class Summary extends Component {
         const dataArray = this.props.data.map(covidSummaryData => {
             return (
                 <tr key={covidSummaryData.Country}>
-                    <td><a href={`/Detail/${covidSummaryData.CountryCode}`}>{covidSummaryData.Country}</a></td>
+                    <td><a href={`/Detail/${covidSummaryData.CountryCode}`}>{covidSummaryData.Country} <ReactCountryFlag countryCode={covidSummaryData.CountryCode} svg cdnUrl="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.3/flags/1x1/" cdnSuffix="svg" title={covidSummaryData.CountryCode}/></a></td>
                     <td>{covidSummaryData.NewConfirmed.toLocaleString()}</td>
                     <td>{covidSummaryData.TotalConfirmed.toLocaleString()}</td>
                     <td>{covidSummaryData.NewRecovered.toLocaleString()}</td>
