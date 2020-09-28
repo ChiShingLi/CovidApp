@@ -39,7 +39,7 @@ class Summary extends Component {
         let output = country.map(ResultItem => {
             return (
                     <tr key={ResultItem.Country}>
-                        <td><a href={`/Detail/${ResultItem.CountryCode}`}>{ResultItem.Country}</a></td>
+                        <td><a href={`/Detail/${ResultItem.CountryCode}`}>{ResultItem.Country}<ReactCountryFlag countryCode={ResultItem.CountryCode} svg cdnUrl="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.3/flags/1x1/" cdnSuffix="svg" title={ResultItem.CountryCode}/></a></td>
                         <td>{ResultItem.NewConfirmed.toLocaleString()}</td>
                         <td>{ResultItem.TotalConfirmed.toLocaleString()}</td>
                         <td>{ResultItem.NewRecovered.toLocaleString()}</td>

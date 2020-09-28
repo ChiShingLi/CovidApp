@@ -18,6 +18,24 @@ A live demo website is available [here](https://chishingli.github.io/CovidApp-de
 
 `react-router-dom`
 
+`react-chart-js-2 chart.js`
+
+`react-country-flag`
+
+## Feature
+- Interactive map:
+![Interactive map]("./src/git-img/1.jpg)
+
+- World Stats Summary:
+![World Stats]("./src/git-img/2.jpg)
+
+- Search by Country:
+![Country Search]("./src/git-img/3.jpg)
+
+- Detailed View by Country:
+![Detailed View]("./src/git-img/4.jpg)
+
+
 ## Note
 This React web app was created as an personal project.<br />
 The data presented on this site might not be accurate or complete.<br />

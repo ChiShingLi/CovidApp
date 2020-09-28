@@ -19,32 +19,32 @@ function getStats(type, countryCode, SummaryData) {
     case "NewConfirmed":
       covidData = SummaryData.filter(data => data.CountryCode === countryCode)
         .map(x => x.NewConfirmed)
-      return (covidData);
+      return (covidData.toLocaleString());
 
     case "TotalConfirmed":
       covidData = SummaryData.filter(data => data.CountryCode === countryCode)
         .map(x => x.TotalConfirmed)
-      return (covidData);
+      return (covidData.toLocaleString());
 
     case "NewRecovered":
       covidData = SummaryData.filter(data => data.CountryCode === countryCode)
         .map(x => x.NewRecovered)
-      return (covidData);
+      return (covidData.toLocaleString());
 
     case "TotalRecovered":
       covidData = SummaryData.filter(data => data.CountryCode === countryCode)
         .map(x => x.TotalRecovered)
-      return (covidData);
+      return (covidData.toLocaleString());
 
     case "NewDeaths":
       covidData = SummaryData.filter(data => data.CountryCode === countryCode)
         .map(x => x.NewDeaths)
-      return (covidData);
+      return (covidData.toLocaleString());
 
     case "TotalDeaths":
       covidData = SummaryData.filter(data => data.CountryCode === countryCode)
         .map(x => x.TotalDeaths)
-      return (covidData);
+      return (covidData.toLocaleString());
 
     case "LastUpdated":
       covidData = SummaryData.filter(data => data.CountryCode === countryCode)
@@ -77,9 +77,11 @@ const MapChart = ({ setTooltipContent, data }) => {
                 <br />
                         New Confirmed: {getStats("NewConfirmed", ISO_A2, data)}
                 <br />
-                        Total Confirmed: {getStats("TotalRecovered", ISO_A2, data)}
+                        Total Confirmed: {getStats("TotalConfirmed", ISO_A2, data)}
                 <br />
                         New Recovered: {getStats("NewRecovered", ISO_A2, data)}
+                <br />
+                        Total Recovered: {getStats("TotalRecovered", ISO_A2, data)}
                 <br />
                         New Deaths: {getStats("NewDeaths", ISO_A2, data)}
                 <br />
