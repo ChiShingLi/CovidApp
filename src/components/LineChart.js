@@ -24,6 +24,7 @@ class LineChart extends Component {
             recovered.push(item.Recovered)
             totalDeaths.push(item.Deaths)
         })
+        
         //chart datasets
         const totalConfirmedChart = {
             labels: date,
